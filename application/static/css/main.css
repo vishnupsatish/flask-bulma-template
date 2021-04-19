@@ -1,0 +1,18 @@
+.h100 {
+    min-height: 100% !important;
+    height: 100%;
+}
+
+
+.dontshow {
+    display: none;
+}
+
+
+.card-hover-effect:hover {
+    box-shadow: 0 19px 19px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-hover-effect {
+    transition: 0.3s;
+}

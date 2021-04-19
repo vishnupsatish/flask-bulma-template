@@ -1,0 +1,7 @@
+**/__pycache__/
+**/.idea
+**/.vscode
+application/site.db
+venv/
+
+# Remember to add your settings_secrets here

@@ -1,0 +1,41 @@
+{% extends "templates/bulma-template.html" %}
+
+
+{% block head %}
+
+    <style>
+        .w100 {
+            width: 100vw
+        }
+
+        body {
+            background-color: #92d0ff;
+        }
+    </style>
+
+{% endblock %}
+
+{% block content %}
+
+
+    <section class="hero is-fullheight">
+        <div class="hero-body">
+
+            <div class="columns is-centered w100">
+                <div class="column is-5 has-text-centered">
+
+
+                    <div class="content">
+                        <h1 class="title is-1">429 - Too Many Requests</h1>
+                        <h3 class="title is-3">Whoa! Slow down there buddy.</h3>
+                        <h5 class="title is-5">Try reloading this page in a few seconds.</h5>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+{% endblock %}

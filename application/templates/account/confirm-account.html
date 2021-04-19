@@ -1,0 +1,36 @@
+{% extends "templates/account-template.html" %}
+
+
+{% block inside_content %}
+
+
+    <div class="content">
+        <p class="title is-4 has-text-centered mt-0">Confirm Email</p>
+
+        {# Show the flashed messages using Bulma's notification class #}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="notification is-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <p>We sent you an email with a link. Click on it, and you're set to go!</p>
+
+        <form class="mb-5" action="" method="post">
+            {{ form.hidden_tag() }}
+            <p>Didn't get the link? Link not working?</p>
+            {{ form.submit(class='button is-info') }}
+        </form>
+
+        <p>Used the wrong email?</p>
+        {% set sha_hash = sha256((current_user.id|string + current_user.email + current_user.password).encode('utf-8')).hexdigest() %}
+        <a href="{{ url_for('delete_account', hash=sha_hash) }}" class="button is-danger">Delete account</a>
+
+
+    </div>
+
+{% endblock %}

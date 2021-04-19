@@ -1,0 +1,69 @@
+{% extends "templates/account-template.html" %}
+
+
+{% block inside_content %}
+    <div class="content">
+
+        <p class="title is-4 has-text-centered mt-0">Login</p>
+
+        {# Show the flashed messages using Bulma's notification class #}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="notification is-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {# Show the login form #}
+        <form method="post" action="">
+
+            {{ form.hidden_tag() }}
+
+
+            <div class="field">
+                {% if form.email.errors %}
+                    {{ form.email(class="input is-medium is-danger") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <p class="help is-danger">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="input is-medium") }}
+                {% endif %}
+
+            </div>
+
+            <div class="field mt-4">
+                {% if form.password.errors %}
+                    {{ form.password(class="input is-medium is-danger") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                            <p class="help is-danger">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.password(class="input is-medium") }}
+                {% endif %}
+
+            </div>
+
+            <label class="checkbox mt-3">
+                {{ form.remember(class="checkbox") }}
+                {{ form.remember.label }}
+            </label>
+
+            <div class="field mt-5">
+                {{ form.submit(class="button is-fullwidth is-info") }}
+            </div>
+
+            <p><a href="{{ url_for('forgot_password') }}">Forgot your password?</a></p>
+            <p>Don't have an account? <a href="{{ url_for('register') }}">Register!</a></p>
+
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "templates/account-template.html" %}
+
+
+{% block inside_content %}
+
+    <div class="content">
+        <p class="title is-4 has-text-centered">Register</p>
+        {# Show the flashed messages using Bulma's notification class #}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="notification is-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {# Show the register form #}
+        <form method="post" action="">
+
+            {{ form.hidden_tag() }}
+
+            <div class="field">
+                {% if form.name.errors %}
+                    {{ form.name(class="input is-medium is-danger") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.name.errors %}
+                            <p class="help is-danger">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.name(class="input is-medium") }}
+                {% endif %}
+
+            </div>
+
+            <div class="field">
+                {% if form.email.errors %}
+                    {{ form.email(class="input is-medium is-danger") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <p class="help is-danger">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="input is-medium") }}
+                {% endif %}
+
+            </div>
+
+            <div class="field mt-4">
+                {% if form.password.errors %}
+                    {{ form.password(class="input is-medium is-danger") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                            <p class="help is-danger">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.password(class="input is-medium") }}
+                {% endif %}
+
+            </div>
+
+            <div class="field">
+                {% if form.confirm_password.errors %}
+                    {{ form.confirm_password(class="input is-medium is-danger") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.confirm_password.errors %}
+                            <p class="help is-danger">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.confirm_password(class="input is-medium") }}
+                {% endif %}
+
+            </div>
+
+            <div class="field mt-5">
+                {{ form.submit(class="button is-fullwidth is-info") }}
+            </div>
+
+            <p>Already have an account? <a href="{{ url_for('login') }}">Login!</a></p>
+
+        </form>
+    </div>
+
+{% endblock %}

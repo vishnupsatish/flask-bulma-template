@@ -1,0 +1,76 @@
+<nav class="navbar is-spaced" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href='/'>
+            <b>Placeholder</b>
+        </a>
+
+        <a onclick="toggleActive(this)" data-target="navbar-mobile-open" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbar-mobile-open" class="navbar-menu">
+        <div class="navbar-start">
+
+
+            <a class="navbar-item" href='#'>
+                <span class="icon-text">
+                    <span class="icon">
+                        <i class="fas fa-chalkboard"></i>
+                    </span>
+                    <span>Item</span>
+
+                </span>
+            </a>
+
+
+
+
+        </div>
+
+        <div class="navbar-end">
+
+            {% if not current_user.is_authenticated %}
+
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a href="{{ url_for('register') }}" class="button is-info">
+                            <strong>Register</strong>
+                        </a>
+                        <a href="{{ url_for('login') }}" class="button is-light">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+
+            {% else %}
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        <span class="icon-text">
+                            <span class="icon">
+                                <i class="fas fa-user-circle"></i>
+                            </span>
+                            <span>Hey, {{ current_user.name }}!</span>
+
+                        </span>
+                    </a>
+
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+{# Show flashed messages with Bulma's notification class #}
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+
+            <div class="notification is-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}

@@ -1,0 +1,42 @@
+{% extends "templates/bulma-template.html" %}
+
+
+{% block head %}
+
+    <style>
+        .w100 {
+            width: 100vw
+        }
+
+        body {
+            background-color: #92d0ff;
+        }
+    </style>
+
+{% endblock %}
+
+{% block content %}
+
+
+    <section class="hero is-fullheight">
+        <div class="hero-body">
+
+            <div class="columns is-centered w100">
+                <div class="column is-5 has-text-centered">
+
+
+                    <div class="content">
+                        <h1 class="title is-1">500 - Internal Server Error</h1>
+                        <h3 class="title is-3">Oh no! There was an error on our part. Try again later. If this error
+                            persists, please email <a href="mailto:example@example.com">example@example.com</a></h3>
+                        <a href="{{ url_for('home') }}" class="button is-large is-info mt-2">Go Home</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+{% endblock %}

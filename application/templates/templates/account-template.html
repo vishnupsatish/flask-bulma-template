@@ -1,0 +1,48 @@
+{% extends 'templates/bulma-template.html' %}
+
+
+{% block head %}
+
+    <style>
+        .w100 {
+            width: 100vw
+        }
+
+        body {
+            background-color: #92d0ff;
+        }
+    </style>
+
+{% endblock %}
+
+{% block body %}
+
+
+    <section class="hero is-fullheight">
+        <div class="hero-body">
+
+            <div class="columns is-centered w100">
+
+                <div class="column is-5">
+                    <div class="box has-text-centered">
+                        <img width="29%" src="{{ url_for('static', filename='img/logo.png') }}" alt="">
+                    </div>
+                    <div class="box">
+
+                        {% block inside_content %}
+                        {% endblock %}
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
