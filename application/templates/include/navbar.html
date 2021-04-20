@@ -52,10 +52,16 @@
                             <span class="icon">
                                 <i class="fas fa-user-circle"></i>
                             </span>
-                            <span>Hey, {{ current_user.name }}!</span>
+                            <span>Hi, {{ current_user.name }}!</span>
 
                         </span>
                     </a>
+
+                    <div class="navbar-dropdown">
+                        <a href="{{ url_for('logout') }}" class="navbar-item">
+                            Log out
+                        </a>
+                    </div>
 
                 </div>
             {% endif %}

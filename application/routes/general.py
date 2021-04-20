@@ -9,4 +9,4 @@ from flask_login import login_required
 @abort_not_confirmed
 def home():
     # Your home logic goes here
-    return render_template('general/index.html')
+    return render_template('general/index.html', page_title='Home')
