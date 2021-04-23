@@ -15,6 +15,14 @@ This template is well-organized and is split into folders and files which contai
 - Simple database models
 - Simple forms
 
+## Screenshots
+
+![](https://raw.githubusercontent.com/vishnupsatish/flask-bulma-template/master/demo/1.png)
+![](https://raw.githubusercontent.com/vishnupsatish/flask-bulma-template/master/demo/2.png)
+![](https://raw.githubusercontent.com/vishnupsatish/flask-bulma-template/master/demo/3.png)
+![](https://raw.githubusercontent.com/vishnupsatish/flask-bulma-template/master/demo/4.png)
+![](https://raw.githubusercontent.com/vishnupsatish/flask-bulma-template/master/demo/5.png)
+
 ## Installation
 1. Clone the repository by running ```git clone https://github.com/vishnupsatish/flask-bulma-template```
 2. Change the name of the directory to your project name by running ```mv flask-bulma-template [new_name]```
